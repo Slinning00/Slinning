@@ -3,7 +3,7 @@
 
 🚀 **Live Site**: [https://slinning00.github.io/scaling-fortnight/](https://slinning00.github.io/scaling-fortnight/)
 
-## Features:
+## Features
 - Responsive design
 - Logo portfolio showcase
 - Contact form
