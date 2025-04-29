@@ -1,4 +1,4 @@
-# scaling-fortnight
+# Slinning
 # My Portfolio Website
 
 🚀 **Live Site**: [https://slinning00.github.io/scaling-fortnight/](https://slinning00.github.io/scaling-fortnight/)
