@@ -1,7 +1,7 @@
-# Slinning
+# Scaling fortnight
 # My Portfolio Website
 
-🚀 **Live Site**: [https://slinning00.github.io/slinning/](https://slinning00.github.io/slinning/)
+🚀 **Live Site**: [https://slinning00.github.io/scaling-fortnight/](https://slinning00.github.io/scaling-fortnight/)
 
 ## Features
 - Responsive design
