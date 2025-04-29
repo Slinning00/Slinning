@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Slinning | Logo Design Specialist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #ec4899;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* ===== NY HEADER ===== */
+        .hero-header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 8rem 0 10rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+        
+        .hero-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 30%);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-20px) translateX(-50%);}
+            60% {transform: translateY(-10px) translateX(-50%);}
+        }
+        /* ===== SLUTT HEADER ===== */
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            padding: 0 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+        
+        .about {
+            background: white;
+            padding: 5rem 4rem;
+            margin: -5rem auto 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 3;
+        }
+        
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+            margin: 5rem 0;
+        }
+        
+        .portfolio-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .logo-preview {
+            background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+            padding: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover .logo-preview {
+            background: linear-gradient(45deg, #e0e7ff, #c7d2fe);
+        }
+        
+        .logo-preview img {
+            max-width: 80%;
+            max-height: 200px;
+            object-fit: contain;
+            transition: all 0.4s ease;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+        }
+        
+        .portfolio-item:hover .logo-preview img {
+            transform: scale(1.05);
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+        }
+        
+        .portfolio-item-content {
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .portfolio-item-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--dark);
+        }
+        
+        .project-description {
+            color: #64748b;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        /* ===== NY FAQ-SEKSJON ===== */
+        .faq-section {
+            background: #f8fafc;
+            padding: 6rem 0;
+            margin-top: 4rem;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            background: white;
+            padding: 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            background: white;
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        /* ===== SLUTT FAQ ===== */
+        
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--dark);
+            color: white;
+            position: relative;
+            margin-top: 5rem;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%231e293b" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%231e293b"/></svg>');
+            background-size: cover;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .portfolio {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+            }
+            
+            nav a {
+                padding: 0.5rem 1rem;
+            }
+            
+            .about {
+                padding: 3rem 2rem;
+                margin: -3rem auto 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NY HEADER ===== -->
+    <header class="hero-header">
+        <div class="hero-content">
+            <h1 class="hero-title">Jonathan Slinning</h1>
+            <p class="hero-subtitle">Transforming Ideas into Memorable Visual Identities</p>
+            <a href="#portfolio" class="btn">View My Work</a>
+        </div>
+        <div class="scroll-down">↓</div>
+    </header>
+    
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#faq">FAQ</a>
+    </nav>
+    
+    <section id="about" class="about">
+        <h2 class="section-title">About Me</h2>
+        <p>Hello! I'm Jonathan Slinning, a passionate graphic designer specializing in logo design and brand identity. With a keen eye for detail and a love for meaningful design, I help businesses establish their visual presence through custom logo designs that resonate with their audience.</p>
+        
+        <p>My approach combines strategic thinking with creative execution to deliver logos that are not just visually appealing but also communicate your brand's core values effectively.</p>
+        
+        <h3>My Design Process</h3>
+        <div class="skills">
+            <span class="skill">Discovery</span>
+            <span class="skill">Concept Development</span>
+            <span class="skill">Typography</span>
+            <span class="skill">Color Theory</span>
+            <span class="skill">Vector Illustration</span>
+            <span class="skill">Brand Guidelines</span>
+        </div>
+    </section>
+    
+    <section id="portfolio" class="container">
+        <h2 class="section-title">My Portfolio</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">A selection of my recent logo design projects that showcase my versatility and attention to detail.</p>
+        
+        <div class="portfolio">
+            <!-- Mind Over Media Logo -->
+            <div class="portfolio-item">
+                <div class="logo-preview">
+                    <img src="https://slinning00.github.io/scaling-fortnight/mind-over-media-logo.png" alt="Mind Over Media Logo">
+                </div>
+                <div class="portfolio-item-content">
+                    <h3 class="project-title">Mind Over Media</h3>
+                    <p class="project-description">Conceptual logo for a creative media agency focusing on strategic communication and innovative thinking.</p>
+                </div>
+            </div>
+            
+            <!-- Sunrise Cafe Logo -->
+            <div class="portfolio-item">
+                <div class="logo-preview">
+                    <img src="https://slinning00.github.io/scaling-fortnight/sunrise-cafe-logo.png" alt="Sunrise Cafe Logo">
+                </div>
+                <div class="portfolio-item-content">
+                    <h3 class="project-title">Sunrise Cafe</h3>
+                    <p class="project-description">Warm and inviting logo for a specialty coffee shop with focus on morning hours and cozy atmosphere.</p>
+                </div>
+            </div>
+            
+            <!-- Lush Locks Studio Logo -->
+            <div class="portfolio-item">
+                <div class="logo-preview">
+                    <img src="https://slinning00.github.io/scaling-fortnight/lush-locks-logo.png" alt="Lush Locks Studio Logo">
+                </div>
+                <div class="portfolio-item-content">
+                    <h3 class="project-title">Lush Locks Studio</h3>
+                    <p class="project-description">Elegant beauty salon logo specializing in hair care and styling services with a luxury touch.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== NY FAQ-SEKSJON ===== -->
+    <section id="faq" class="faq-section">
+        <div class="container faq-container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How long does a logo design project typically take?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Most logo projects take between 2-4 weeks from initial consultation to final delivery. The timeline depends on the complexity of the project and the number of revision rounds needed.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What's included in your logo design service?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Each logo project includes: 3 initial concepts, 2 rounds of revisions, final logo in multiple formats (AI, EPS, PNG, JPG, SVG), and a basic style guide with color codes and font recommendations.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you provide branding beyond just the logo?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! I offer complete brand identity packages that include business cards, letterheads, social media templates, and brand guidelines. Let me know your needs and I can create a custom package.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What are your payment terms?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>I require a 50% deposit to begin work, with the remaining 50% due upon project completion. Payments can be made via bank transfer or PayPal.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I trademark the logo you design for me?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! Once the final payment is received, you'll have full rights to the design and can trademark it. I can provide the necessary vector files and documentation for your trademark application.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Jonathan Slinning. All rights reserved.</p>
+            <p>Designed and developed with passion by Jonathan Slinning</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+                
+                // Close other open items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const items = document.querySelectorAll('.portfolio-item, .about, .faq-item');
+            items.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                if (itemTop < window.innerHeight - 100) {
+                    item.style.opacity = 1;
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
